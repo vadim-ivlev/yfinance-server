@@ -22,7 +22,7 @@ class handler(BaseHTTPRequestHandler):
         interval = query.get("interval",["1m"])[0]
         print(symbol, period, interval)
         data = self.yf_history(symbol, period, interval)
-        self.wfile.write(json.dumps(data, indent=0).encode('utf-8'))
+        self.wfile.write(json.dumps(data, indent=None).encode('utf-8'))
         return
     
 

@@ -10,6 +10,7 @@ class handler(BaseHTTPRequestHandler):
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
+        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
 
     def do_GET(self):
@@ -21,7 +22,7 @@ class handler(BaseHTTPRequestHandler):
         interval = query.get("interval",["1m"])[0]
         print(symbol, period, interval)
         data = self.yf_history(symbol, period, interval)
-        self.wfile.write(json.dumps(data, indent=2).encode('utf-8'))
+        self.wfile.write(json.dumps(data, indent=0).encode('utf-8'))
         return
     
 

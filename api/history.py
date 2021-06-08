@@ -3,6 +3,7 @@ from urllib.parse import urlparse, parse_qs
 import json
 import numpy as np
 import yfinance as yf
+import pandas as pd
 
 
 class handler(BaseHTTPRequestHandler):
@@ -40,7 +41,7 @@ class handler(BaseHTTPRequestHandler):
         return df.to_dict(orient='records')
 
 
-    def yf_history_dataframe(self, symbol="MSFT", period='1d', interval='1m'):# -> pd.DataFrame:
+    def yf_history_dataframe(self, symbol="MSFT", period='1d', interval='1m') -> pd.DataFrame:
         """ Ticker historical data.
 
         Args:

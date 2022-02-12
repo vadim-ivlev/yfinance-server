@@ -2,6 +2,10 @@
 
 a wraper around yfinance library
 
+https://yfinance-server.vercel.app/
+
+
+
 ``` 
 Ticker historical data.
 
